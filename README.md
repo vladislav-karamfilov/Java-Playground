@@ -1,1 +1,3 @@
-# Java-Playground
+# Java Playground
+
+## Small projects in Java programming language
