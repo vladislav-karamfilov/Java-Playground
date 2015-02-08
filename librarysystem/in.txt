@@ -1,0 +1,6 @@
+Test media 1 | Test media author 1 | Audio CD | 2013 | Not rented
+Test media 2 | Test media author 2 | Book | 1920 | rented
+Test media 3 | Test media author 3 | magazine | 2014 | Not Rented
+Test media 4 | Test author | VIDEOCASSETTE | 2005 | rented
+Test media 5 | Test media author 1 | COMPACT cassette | 1992 | rented
+Test media 6 | Test author | CD-ROM | 2009 | Not rented
