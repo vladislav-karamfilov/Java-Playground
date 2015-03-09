@@ -30,8 +30,7 @@ public class LibrarySystemDemo {
     }
 
     private static void readMedias(String fileName) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(fileName));
-        try {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String currentLine = reader.readLine();
             while (currentLine != null) {
                 // Gets the media info in format "Title | Author | Type | Release year | (optional) Rented/Not rented"
@@ -41,8 +40,6 @@ public class LibrarySystemDemo {
 
                 currentLine = reader.readLine();
             }
-        } finally {
-            reader.close();
         }
     }
 
@@ -58,32 +55,25 @@ public class LibrarySystemDemo {
     }
 
     private static void writeRentedMedias(String fileName) throws IOException {
-        PrintWriter writer = new PrintWriter(new FileWriter(fileName, true));
-        try {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName, true))) {
             writer.println("---Rented medias in library \"" + library.getName() + "\"---");
             for (IMedia media : library.getRentedMedias()) {
                 writer.println(media);
             }
-        } finally {
-            writer.close();
         }
     }
 
     private static void writeNotRentedMedias(String fileName) throws IOException {
-        PrintWriter writer = new PrintWriter(new FileWriter(fileName, true));
-        try {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName, true))) {
             writer.println("---Not rented medias in library \"" + library.getName() + "\"---");
             for (IMedia media : library.getNotRentedMedias()) {
                 writer.println(media);
             }
-        } finally {
-            writer.close();
         }
     }
 
     private static void writeMediasByAuthor(String fileName, String authorName) throws IOException {
-        PrintWriter writer = new PrintWriter(new FileWriter(fileName, true));
-        try {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName, true))) {
             writer.println("---Medias with author \"" + authorName + "\" in library \"" + library.getName() + "\"---");
             Iterable<IMedia> authorMedias = library.getMediasByAuthor(authorName);
             if (authorMedias == null) {
@@ -93,8 +83,6 @@ public class LibrarySystemDemo {
                     writer.println(media);
                 }
             }
-        } finally {
-            writer.close();
         }
     }
 }

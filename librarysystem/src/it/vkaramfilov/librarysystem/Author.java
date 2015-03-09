@@ -7,7 +7,7 @@ public class Author extends Person implements IAuthor {
     private Collection<IMedia> medias;
 
     public Author(String name) {
-        this(name, new HashSet<IMedia>());
+        this(name, new HashSet<>());
     }
 
     public Author(String name, Collection<IMedia> medias) {
@@ -56,7 +56,7 @@ public class Author extends Person implements IAuthor {
     public boolean equals(Object other) {
         try {
             Author otherAuthor = (Author) other;
-            return this.getName() == otherAuthor.getName();
+            return this.getName().equals(otherAuthor.getName());
         } catch (ClassCastException ex) {
             return false;
         }

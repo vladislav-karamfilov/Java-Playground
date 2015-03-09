@@ -13,13 +13,13 @@ public class Library implements ILibrary {
     private Map<String, IAuthor> authors;
 
     public Library(String name) {
-        this(name, new ArrayList<IMedia>());
+        this(name, new ArrayList<>());
     }
 
     public Library(String name, Collection<IMedia> medias) {
         this.setName(name);
         this.setMedias(medias);
-        this.authors = new HashMap<String, IAuthor>();
+        this.authors = new HashMap<>();
     }
 
     public String getName() {
@@ -49,7 +49,7 @@ public class Library implements ILibrary {
     }
 
     public Iterable<IMedia> getRentedMedias() {
-        Collection<IMedia> rentedMedias = new ArrayList<IMedia>();
+        Collection<IMedia> rentedMedias = new ArrayList<>();
 
         for (IMedia media : this.medias) {
             if (media.getState() == MediaState.RENTED) {
@@ -61,7 +61,7 @@ public class Library implements ILibrary {
     }
 
     public Iterable<IMedia> getNotRentedMedias() {
-        Collection<IMedia> notRentedMedias = new ArrayList<IMedia>();
+        Collection<IMedia> notRentedMedias = new ArrayList<>();
 
         for (IMedia media : this.medias) {
             if (media.getState() == MediaState.NOT_RENTED) {
